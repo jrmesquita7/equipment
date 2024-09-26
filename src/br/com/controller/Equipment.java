@@ -13,7 +13,8 @@ public class Equipment {
     private String serialNumber;
     private Status status; // Status do equipamento (definido por enum Status)
     private boolean isBorrowed; // Indica se o equipamento está emprestado
-    private User responsavel; // Usuário responsável pelo equipamento
+    private User responsavel;
+    private EquipmentSheduler equipmentSheduler;// Usuário responsável pelo equipamento
 
     // Constantes de status para definir o estado do equipamento
     public static final int INATIVO = 0;
@@ -26,6 +27,7 @@ public class Equipment {
         this.tipo = tipo;
         this.status = Status.ATIVO; // Define o status inicial como ativo
         this.isBorrowed = false; // Define o estado inicial como não emprestado
+        this.equipmentSheduler = new EquipmentSheduler();
     }
 
     // Construtor que inicializa id, nome, tipo e número de série do equipamento
@@ -36,9 +38,14 @@ public class Equipment {
         this.serialNumber = serialNumber;
         this.status = status.ATIVO; // Define o status inicial como ativo
         this.isBorrowed = false; // Define o estado inicial como não emprestado
+        this.equipmentSheduler = new EquipmentSheduler();
     }
 
     // Métodos getters e setters para os atributos do equipamento
+    public EquipmentSheduler getEquipmentSheduler(){
+      return equipmentSheduler;
+    };
+
     public String getNome() {
         return nome;
     }
