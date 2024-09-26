@@ -3,6 +3,7 @@ package br.com.controller;
 import br.com.controller.constantes.EquipmentType;
 import br.com.controller.constantes.Status;
 
+
 public class Equipment {
 
     // Atributos do equipamento
@@ -58,8 +59,13 @@ public class Equipment {
         return isBorrowed;
     }
 
-    public User getResponsavel() {
-        return responsavel;
+    public void getResponsavel() {
+        if(this.responsavel == null){
+            System.out.println("Não existe nenhum responsável com esse equipamento");
+        }else {
+            System.out.println("O equipamento " + this.nome + " está com " + this.responsavel.getName());
+        }
+
     }
 
     // Método para emprestar o equipamento

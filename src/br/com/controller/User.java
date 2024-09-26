@@ -42,12 +42,9 @@ public class User {
 
     public void setRole(String role) {
         if(this.role== null || role.trim().isEmpty()){
-            throw new IllegalArgumentException("Nome inválido");
+            throw new IllegalArgumentException("Cargo inválido");
         }
         this.role = role;
     }
-
-    //Métodos
-
 
 }
