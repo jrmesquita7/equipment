@@ -16,11 +16,6 @@ public class Equipment {
     private User responsavel;
     private EquipmentSheduler equipmentSheduler;// Usuário responsável pelo equipamento
 
-    // Constantes de status para definir o estado do equipamento
-    public static final int INATIVO = 0;
-    public static final int ATIVO = 1;
-    public static final int MANUTENCAO = 2;
-
     // Construtor que inicializa nome e tipo do equipamento
     public Equipment(String nome, EquipmentType tipo) {
         this.nome = nome;
