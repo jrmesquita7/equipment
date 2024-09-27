@@ -1,4 +1,4 @@
-package br.com.controller.constantes;
+package com.iema.equipamentSheduler.constantes;
 
 public enum HorarioType {
     // Definição dos tipos de horários com valores específicos

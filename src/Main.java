@@ -1,7 +1,8 @@
-import br.com.controller.Equipment;
-import br.com.controller.User;
-import br.com.controller.constantes.EquipmentType;
-import br.com.controller.constantes.HorarioType;
+import com.iema.equipamentSheduler.model.Equipment;
+import com.iema.equipamentSheduler.model.User;
+import com.iema.equipamentSheduler.constantes.EquipmentType;
+import com.iema.equipamentSheduler.constantes.HorarioType;
+import com.iema.equipamentSheduler.service.EquipmentLendingService;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,25 +13,16 @@ public class Main {
         Equipment equipment1 = new Equipment("Lab Info", EquipmentType.CHAVE_LABORATORIO);
         Equipment equipment2 = new Equipment("Televisão 1", EquipmentType.TV);
 
+        EquipmentLendingService equipmentLendingService = new EquipmentLendingService();
+
         System.out.println(equipment.toString());
         System.out.println(equipment1.toString());
 
-        equipment1.borrowedEquipment(user);
-
-        equipment2.getEquipmentSheduler().agendarHorario(HorarioType.PRIMEIRO.getHorario(), user);
-        equipment2.getEquipmentSheduler().agendarHorario(HorarioType.SETIMO.getHorario(), user);
-        equipment2.getEquipmentSheduler().verificarHorariosDisoniveis();
-        equipment2.getEquipmentSheduler().cancelarAgendamento(HorarioType.SEXTO.getHorario(),user);
-
+        equipmentLendingService.borrowEquipment(equipment, user,HorarioType.SEXTO.getHorario());
+        equipmentLendingService.borrowEquipment(equipment, user,HorarioType.SETIMO.getHorario());
 
         equipment.getEquipmentSheduler().verificarHorariosDisoniveis();
 
-        equipment1.getEquipmentSheduler().agendarHorario(HorarioType.SEXTO.getHorario(), user);
-        equipment1.getEquipmentSheduler().agendarHorario(HorarioType.SETIMO.getHorario(), user);
-        equipment1.getEquipmentSheduler().agendarHorario(HorarioType.OITAVO.getHorario(), user);
-        equipment1.getEquipmentSheduler().agendarHorario(HorarioType.NONO.getHorario(), user);
-
-        equipment1.getEquipmentSheduler().verificarHorariosDisoniveis();
 
     }
 }

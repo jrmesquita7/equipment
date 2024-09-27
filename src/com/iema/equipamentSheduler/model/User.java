@@ -1,4 +1,4 @@
-package br.com.controller;
+package com.iema.equipamentSheduler.model;
 
 public class User {
 
@@ -19,7 +19,7 @@ public class User {
     }
 
     public void setName(String name) {
-        if(this.name == null || name.trim().isEmpty()){
+        if(name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Nome inválido");
         }
         this.name = name;
@@ -30,7 +30,7 @@ public class User {
     }
 
     public void setEmail(String email) {
-        if(this.email == null || email.trim().isEmpty()){
+        if(email == null || email.trim().isEmpty()) {
             throw new IllegalArgumentException("Email inválido");
         }
         this.email = email;
@@ -41,10 +41,9 @@ public class User {
     }
 
     public void setRole(String role) {
-        if(this.role== null || role.trim().isEmpty()){
+        if(role == null || role.trim().isEmpty()) {
             throw new IllegalArgumentException("Cargo inválido");
         }
         this.role = role;
     }
-
 }

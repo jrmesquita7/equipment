@@ -1,14 +1,35 @@
-package br.com.controller;
+package com.iema.equipamentSheduler.service;
 
-import br.com.controller.constantes.HorarioType;
+import com.iema.equipamentSheduler.constantes.HorarioType;
+import com.iema.equipamentSheduler.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class EquipmentSheduler {
+public class EquipmentShedulerService {
 
     // Mapa para armazenar os agendamentos do equipamento, onde a chave é o horário (String) e o valor é o usuário que reservou o horário.
-    private Map<String, User> schedule;
+    protected Map<String, User> schedule;
+
+    public Map<String, User> getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Map<String, User> schedule) {
+        this.schedule = schedule;
+    }
+
+    public HorarioType getHorarioType() {
+        return horarioType;
+    }
+
+    public void setHorarioType(HorarioType horarioType) {
+        this.horarioType = horarioType;
+    }
+
+    public String[] getHorarios() {
+        return horarios;
+    }
 
     // Instância do enum HorarioType (não está sendo usada diretamente no código, mas presente no escopo da classe).
     private HorarioType horarioType;
@@ -27,7 +48,7 @@ public class EquipmentSheduler {
     };
 
     // Construtor da classe EquipmentSheduler. Inicializa o mapa de agendamentos com os horários definidos.
-    public EquipmentSheduler() {
+    public EquipmentShedulerService() {
         this.schedule = new HashMap<>();
         // Percorre o array de horários e adiciona cada horário ao mapa 'schedule', definindo-os como disponíveis (valor null).
         for (String horario : horarios) {
